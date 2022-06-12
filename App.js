@@ -23,7 +23,7 @@ export default function App() {
         <Text className="text-[38px] font-bold">Find your games</Text>
         <Text className="text-center max-w-[321px] mt-2.5 text-xl leading-8">
           Now no need to worry if you want to play games, find lots of games you
-          want in just an app!
+          want in just an app.!
         </Text>
         <Pressable className="w-full p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-[49px]">
           <Text className="text-white text-center text-2xl">Mulai</Text>
