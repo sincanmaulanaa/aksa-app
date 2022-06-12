@@ -1,4 +1,4 @@
-package com.testproject.newarchitecture.components;
+package com.zefanya.aksa.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

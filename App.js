@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { Text, View, Image, Pressable } from "react-native";
 import AppLoading from "expo-app-loading";
@@ -16,13 +16,9 @@ export default function App() {
     Poppins_600SemiBold,
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
   return (
     <TailwindProvider>
-      <View className="flex-1 items-center justify-center w-4/5 bg-white mx-12">
+      <View className="flex-1 items-center justify-center w-4/5 mx-[10%]" >
         <Image source={Logo} className="w-full h-40 mb-60" />
         <Text className="text-[38px] font-bold">Find your games</Text>
         <Text className="text-center max-w-[321px] mt-2.5 text-xl leading-8">
