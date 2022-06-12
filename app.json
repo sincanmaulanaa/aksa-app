@@ -1,10 +1,33 @@
 {
   "expo": {
-    "name": "test-project",
-    "slug": "test-project",
+    "name": "aksaa",
+    "slug": "com.rn.aksa",
     "version": "1.0.0",
+    "icon": "./assets/img/icon.png",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/img/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FEF9B0"
+    },
+    "orientation": "portrait",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "platforms": [
+      "android"
+    ],
+    "android":{
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/img/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "cover"
+      }
+    }
   }
 }
