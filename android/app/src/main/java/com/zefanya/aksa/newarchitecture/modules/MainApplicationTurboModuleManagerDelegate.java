@@ -1,4 +1,4 @@
-package com.testproject.newarchitecture.modules;
+package com.zefanya.aksa.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

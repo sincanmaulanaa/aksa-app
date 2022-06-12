@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "aksaa",
-    "slug": "com.rn.aksa",
+    "name": "Aksa",
+    "slug": "com.zefanya.aksa",
     "version": "1.0.0",
     "icon": "./assets/img/icon.png",
     "assetBundlePatterns": [
