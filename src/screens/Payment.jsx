@@ -8,6 +8,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Alert,
+  Modal,
 } from "react-native";
 import bankBri from "../../assets/img/payment/bank-bri.png";
 import Dana from "../../assets/img/payment/dana.png";
@@ -15,11 +17,38 @@ import Gopay from "../../assets/img/payment/gopay.png";
 import Jenius from "../../assets/img/payment/jenius.png";
 
 export default class Payment extends Component {
-  state = { active: null };
+  state = { active: null, modalVisible: false };
+  setModalVisible = (visible) => {
+    if (this.state.active === null) {
+      this.setState({ modalVisible: visible });
+    } else {
+      this.setState({ modalVisible: false });
+    }
+  };
   render() {
+    const { modalVisible } = this.state;
     return (
       <TailwindProvider>
         <ScrollView>
+          {/* START: Modal */}
+          <Modal animationType="fade" transparent={true} visible={modalVisible}>
+            <View className="bg-black/75 flex-1 justify-center items-center px-8">
+              <View className="bg-slate-50 p-10 m-10 rounded-lg border-4 border-blue-300 flex justify-center items-end w-full">
+                <Text className="font-medium text-lg text-slate-700 mb-6">
+                  Silahkan pilih metode pembayaran terlebih dahulu!
+                </Text>
+                <Pressable
+                  onPress={() => this.setModalVisible(!modalVisible)}
+                  className="w-full px-8 py-2 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300"
+                >
+                  <Text className="text-white font-medium text-md text-center">
+                    Oke
+                  </Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+          {/* END: Modal */}
           <StatusBar style="auto" />
           <View className="flex-1 justify-center px-8 pt-20 pb-12">
             <Text className="text-2xl font-medium mb-6 text-slate-700 underline">
@@ -126,6 +155,7 @@ export default class Payment extends Component {
                 </Text>
               </Pressable>
               <Pressable
+                onPress={() => this.setModalVisible(true)}
                 className="w-[48%] px-4 py-3 rounded-lg bg-blue-500 hover:bg-blue-300 active:bg-blue-300"
                 title="Batal"
               >
