@@ -4,9 +4,7 @@
     "slug": "com.zefanya.aksa",
     "version": "1.0.0",
     "icon": "./assets/img/icon.png",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "splash": {
       "image": "./assets/img/splash.png",
       "resizeMode": "contain",
@@ -16,10 +14,8 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "platforms": [
-      "android"
-    ],
-    "android":{
+    "platforms": ["android", "web"],
+    "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/img/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
