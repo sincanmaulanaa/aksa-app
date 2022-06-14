@@ -24,7 +24,7 @@ class Login extends Component {
           <Pressable
             className="w-full p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-[49px]"
             title="Landing"
-            onPress={() => this.props.navigation.navigate("Landing")}
+            onPress={() => this.props.navigation.navigate("Home")}
           >
             <Text
               style={{ fontFamily: "Poppins" }}

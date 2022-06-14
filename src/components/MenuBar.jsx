@@ -3,15 +3,16 @@ import { View, Text, Pressable } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import Icon from "react-native-vector-icons/SimpleLineIcons"
 
-class Navbar extends Component {
+class MenuBar extends Component {
   render() {
+    console.log(this.props)
     return (
       <TailwindProvider>
         <View className="Flex p-1 flex-row justify-around items-center absolute bottom-0 left-0 w-full bg-white shadow-sm">
             
-        <Buttons icons="home" color="#000" name="Home" active={true}/>
-        <Buttons icons="clock" color="#000" name="History" />
-        <Buttons icons="user" color="#000" name="Akun" />
+        <Buttons icons="home" color="#000" name="Home" active={this.props.active == 1} onPress={()=> this.props.event[1]}/>
+        <Buttons icons="clock" color="#000" name="History" active={this.props.active == 2} onPress={()=> this.props.event[2]}/>
+        <Buttons icons="user" color="#000" name="Akun" active={this.props.active == 3} onPress={()=> this.props.event[3]}/>
             
         </View>
       </TailwindProvider>
@@ -35,4 +36,4 @@ function Buttons(props){
     )
 }
 
-export default Navbar;
+export default MenuBar;

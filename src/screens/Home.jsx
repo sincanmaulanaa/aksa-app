@@ -1,29 +1,65 @@
-import React, { Component } from "react";
-import { StatusBar } from "expo-status-bar";
-import { View, Text } from "react-native-web";
-import Navbar from "../components/Navbar";
-import { TailwindProvider } from "tailwindcss-react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icons from "react-native-vector-icons/Ionicons"
 
-const Stack = createStackNavigator();
-export default class Home extends Component {
-  render() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Main"
-          screenOptions={{ headerShow: false }}
-        >
-          <Stack.Screen name="Main" component={Homepage} />
-          <Stack.Screen name="History" component={Landing} />
-          <Stack.Screen name="User" component={User} />
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
 
-          <TailwindProvider>
-            <StatusBar style="auto" />
-          </TailwindProvider>
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+function UserScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>User!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer independent={true}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'home-sharp'
+                : 'home-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-time-sharp' : 'ios-time-outline';
+            }else if(route.name === 'user'){
+              iconName = focused ? 'ios-person-sharp' : 'ios-person-outline';
+            }
+
+            return <Icons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: '#3784DE',
+          tabBarActiveBackgroundColor: '#D4E7FD',
+          tabBarInactiveTintColor: 'gray',
+          headerShown: false,
+        })}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="user" component={UserScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
