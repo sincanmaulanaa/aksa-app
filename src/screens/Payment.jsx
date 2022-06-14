@@ -8,7 +8,6 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  Alert,
   Modal,
 } from "react-native";
 import bankBri from "../../assets/img/payment/bank-bri.png";
