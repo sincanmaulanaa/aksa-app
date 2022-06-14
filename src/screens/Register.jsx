@@ -3,23 +3,33 @@ import { StatusBar } from "expo-status-bar";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { Text, View, Pressable, TextInput } from "react-native";
 
-class Login extends Component {
+export default class Landing extends Component {
   render() {
     return (
       <TailwindProvider>
         <StatusBar style="auto" />
         <View className="flex-1 items-center justify-center w-4/5 mx-[10%]">
-          <Text className="text-5xl font-bold mb-12">Masuk</Text>
+          <Text className="text-5xl font-bold mb-12">Daftar</Text>
+          <TextInput
+            placeholder="Nama Lengkap"
+            placeholderTextColor={"#333"}
+            className="border-b border-slate-500 w-full py-3 px-2 mb-7"
+          />
+          <TextInput
+            placeholder="Email"
+            placeholderTextColor={"#333"}
+            className="border-b border-slate-500 w-full py-3 px-2 mb-7"
+          />
           <TextInput
             placeholder="Username"
             placeholderTextColor={"#333"}
-            className="border-b border-slate-500 w-full py-3 px-2"
+            className="border-b border-slate-500 w-full py-3 px-2 mb-7"
           />
           <TextInput
             secureTextEntry={true}
             placeholder="Password"
             placeholderTextColor={"#333"}
-            className="border-b border-slate-500 w-full py-3 px-2 mt-7"
+            className="border-b border-slate-500 w-full py-3 px-2 mb-7"
           />
           <Pressable
             className="w-full p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-[49px]"
@@ -30,16 +40,16 @@ class Login extends Component {
               style={{ fontFamily: "Poppins" }}
               className="text-white text-center text-2xl"
             >
-              Masuk
+              Daftar
             </Text>
           </Pressable>
           <Text className="mt-6">
-            Belum punya akun?{" "}
+            Sudah punya akun?{" "}
             <Text
-              onPress={() => this.props.navigation.navigate("Register")}
+              onPress={() => this.props.navigation.navigate("Login")}
               className="text-blue-600 font-medium"
             >
-              Daftar
+              Masuk
             </Text>
           </Text>
         </View>
@@ -47,5 +57,3 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;
