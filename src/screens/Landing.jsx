@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { Text, View, Image, Pressable } from "react-native";
 import Logo from "../../assets/img/aksa-logo.png";
+import Navbar from "../components/Navbar";
 
 class Landing extends Component {
   render() {
@@ -24,6 +25,7 @@ class Landing extends Component {
           </Pressable>
           <StatusBar style="auto" />
         </View>
+        <Navbar />
       </TailwindProvider>
     );
   }

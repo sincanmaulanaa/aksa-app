@@ -4,7 +4,7 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { Text, View, Image, Pressable } from "react-native";
 import Logo from "../../assets/img/aksa-logo.png";
 
-class Landing extends Component {
+class Login extends Component {
   render() {
     return (
       <TailwindProvider>
@@ -32,4 +32,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default Login;
