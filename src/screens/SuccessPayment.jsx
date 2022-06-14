@@ -17,6 +17,7 @@ export default class SuccessPayment extends Component {
           <View className="border-2 border-slate-600 rounded-md">
             <View className="w-full p-8 flex flex-row justify-between">
               <View>
+                {/* START: Game */}
                 <View className="mb-7">
                   <Text className="text-slate-700 mb-1 font-medium">
                     Permainan
@@ -25,6 +26,9 @@ export default class SuccessPayment extends Component {
                     Mobil
                   </Text>
                 </View>
+                {/* END: Game */}
+
+                {/* START: Price Total */}
                 <View>
                   <Text className="text-slate-700 mb-1 font-medium">
                     Total Harga
@@ -33,14 +37,19 @@ export default class SuccessPayment extends Component {
                     Rp 60.000
                   </Text>
                 </View>
+                {/* END: Price Total */}
               </View>
               <View className="ml-8">
+                {/* START: Ticket Total */}
                 <View className="mb-7">
                   <Text className="text-slate-700 mb-1 font-medium">
                     Total Tiket
                   </Text>
                   <Text className="text-slate-700 text-2xl font-medium">4</Text>
                 </View>
+                {/* END: Ticket Total */}
+
+                {/* START: Payment Method */}
                 <View>
                   <Text className="text-slate-700 mb-1 font-medium">
                     Metode Pembayaran
@@ -49,8 +58,11 @@ export default class SuccessPayment extends Component {
                     Gopay
                   </Text>
                 </View>
+                {/* END: Payment Method */}
               </View>
             </View>
+
+            {/* START: Payment Code */}
             <View className="flex justify-center items-center mb-8 mt-6">
               <Text className="text-slate-700 mb-2 font-medium">
                 Kode Pembayaran
@@ -64,7 +76,10 @@ export default class SuccessPayment extends Component {
                 Tunjukkan kode pembayaran kepada kasir.
               </Text>
             </View>
+            {/* END: Payment Code */}
           </View>
+
+          {/* START: Button */}
           <Pressable className="w-[340px] p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-14">
             <Text
               style={{ fontFamily: "Poppins" }}
@@ -73,6 +88,7 @@ export default class SuccessPayment extends Component {
               Kembali
             </Text>
           </Pressable>
+          {/* END: Button */}
         </View>
       </TailwindProvider>
     );
