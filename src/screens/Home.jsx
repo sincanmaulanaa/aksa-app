@@ -7,6 +7,14 @@ import HomeScreen from "./HomeScreen";
 import History from "./History";
 import Akun from "./Akun";
 
+const styles = (bg, opacity) =>
+  StyleSheet.create({
+    hover: {
+      backgroundColor: bg,
+      opacity: opacity,
+    },
+  });
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {

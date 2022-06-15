@@ -62,7 +62,9 @@ function Homes() {
             <Lists name={item.nama} price={item.harga} time={item.waktu} />
           )}
           renderSectionHeader={({ section: { title } }) => (
-            <Text className="text-4xl font-bold mb-16 mt-10">{title}</Text>
+            <Text className="text-3xl font-bold mt-16 mb-10 text-slate-700">
+              {title}
+            </Text>
           )}
         />
       </SafeAreaView>
@@ -83,13 +85,7 @@ function Lists({ name, price, time }) {
   };
 
   return (
-    <View
-      className="p-6 border-1 rounded-lg border-slate-600 w-full flex mb-5"
-      style={{
-        borderColor: "#000",
-        borderWidth: 2,
-      }}
-    >
+    <View className="p-6 border-2 rounded-lg border-slate-600 w-full flex mb-5">
       <View className="flex-1 flex flex-row">
         <View className="flex-1 max-w-[75%]">
           <Text className="text-2xl font-semibold text-slate-700">{name}</Text>
@@ -133,10 +129,9 @@ function Lists({ name, price, time }) {
         </View>
         <Pressable
           onPress={() => NV.navigate("Payment", { quantity, name, price })}
+          className="bg-[#1E80C0] rounded-md flex-grow-0 px-6 py-2 mt-4 hover:bg-blue-300 active:bg-blue-300"
         >
-          <Text className="bg-[#1E80C0] rounded-md flex-grow-0 px-6 py-2 text-white font-bold text-lg">
-            Pesan
-          </Text>
+          <Text className="text-white font-medium text-md">Pesan</Text>
         </Pressable>
       </View>
     </View>

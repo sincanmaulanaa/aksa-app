@@ -29,7 +29,7 @@ export default class Payment extends Component {
 
   render() {
     const { modalVisible } = this.state;
-
+    const name = this.props.route.params.name;
     const price = this.props.route.params.price;
     const quantity = this.props.route.params.quantity;
 
@@ -66,7 +66,7 @@ export default class Payment extends Component {
                 Permainan
               </Text>
               <Text className="font-semibold text-4xl text-slate-700">
-                {this.props.route.params.name}
+                {name}
               </Text>
             </View>
             {/* END: Games Column */}
@@ -166,7 +166,7 @@ export default class Payment extends Component {
                   this.setModalVisible(true);
                   !modalVisible
                     ? this.props.navigation.navigate("Success", {
-                        name: this.props.route.name,
+                        name,
                         price: quantity * parseInt(price.split(".").join("")),
                         quantity,
                         method: this.state.active,

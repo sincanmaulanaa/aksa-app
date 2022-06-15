@@ -9,6 +9,7 @@ export default class SuccessPayment extends Component {
   render() {
     let id = Math.floor(Math.random() * 1000000);
 
+<<<<<<< HEAD
     const storeData = async (value) => {
       try {
         const jsonValue = JSON.stringify(value);
@@ -18,6 +19,30 @@ export default class SuccessPayment extends Component {
         console.log(e);
       }
     };
+=======
+    return (
+      <TailwindProvider>
+        <View className="flex-1 justify-center items-center px-8">
+          <Text className="font-bold text-5xl text-slate-700 mb-9">
+            Yeayy🙌
+          </Text>
+          <Text className="text-2xl font-semibold mb-5 text-slate-700">
+            Pembayaran berhasil
+          </Text>
+          <View className="border-2 border-slate-600 rounded-md">
+            <View className="w-full p-8 flex flex-row justify-between">
+              <View>
+                {/* START: Game */}
+                <View className="mb-7">
+                  <Text className="text-slate-700 mb-1 font-medium">
+                    Permainan
+                  </Text>
+                  <Text className="text-slate-700 text-2xl font-medium">
+                    {this.props.route.params.name}
+                  </Text>
+                </View>
+                {/* END: Game */}
+>>>>>>> e2f6570fd5456907067fdf73a1fb9e2fd686e65c
 
     const getData = async () => {
       try {
