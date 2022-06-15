@@ -14,9 +14,11 @@ import bankBri from "../../assets/img/payment/bank-bri.png";
 import Dana from "../../assets/img/payment/dana.png";
 import Gopay from "../../assets/img/payment/gopay.png";
 import Jenius from "../../assets/img/payment/jenius.png";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 
 export default class Payment extends Component {
   state = { active: null, modalVisible: false };
+
   setModalVisible = (visible) => {
     if (this.state.active === null) {
       this.setState({ modalVisible: visible });
@@ -24,8 +26,13 @@ export default class Payment extends Component {
       this.setState({ modalVisible: false });
     }
   };
+
   render() {
     const { modalVisible } = this.state;
+
+    const price = this.props.route.params.price;
+    const quantity = this.props.route.params.quantity;
+
     return (
       <TailwindProvider>
         <ScrollView>
@@ -59,7 +66,7 @@ export default class Payment extends Component {
                 Permainan
               </Text>
               <Text className="font-semibold text-4xl text-slate-700">
-                Mobil
+                {this.props.route.params.name}
               </Text>
             </View>
             {/* END: Games Column */}
@@ -71,7 +78,7 @@ export default class Payment extends Component {
                   Total Tiket
                 </Text>
                 <Text className="border-2 py-4 rounded-lg border-slate-700 text-slate-700 text-center text-2xl font-semibold">
-                  4
+                  {quantity}
                 </Text>
               </View>
               <View className="w-7/12">
@@ -79,7 +86,7 @@ export default class Payment extends Component {
                   Total Harga
                 </Text>
                 <Text className="border-2 py-4 rounded-lg border-slate-700 text-slate-700 text-center text-2xl font-semibold">
-                  Rp 60.000
+                  Rp {quantity * parseInt(price.split(".").join(""))}
                 </Text>
               </View>
             </View>
@@ -93,10 +100,10 @@ export default class Payment extends Component {
               <View className="flex flex-row flex-wrap justify-between">
                 <TouchableOpacity
                   onPress={() => {
-                    this.setState({ active: 0 });
+                    this.setState({ active: "Dana" });
                   }}
                   className={
-                    this.state.active === 0
+                    this.state.active === "Dana"
                       ? "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300 bg-blue-200"
                       : "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300"
                   }
@@ -105,10 +112,10 @@ export default class Payment extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    this.setState({ active: 1 });
+                    this.setState({ active: "Gopay" });
                   }}
                   className={
-                    this.state.active === 1
+                    this.state.active === "Gopay"
                       ? "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300 bg-blue-200"
                       : "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300"
                   }
@@ -117,10 +124,10 @@ export default class Payment extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    this.setState({ active: 2 });
+                    this.setState({ active: "Bank Bri" });
                   }}
                   className={
-                    this.state.active === 2
+                    this.state.active === "Bank Bri"
                       ? "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300 bg-blue-200"
                       : "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300"
                   }
@@ -129,10 +136,10 @@ export default class Payment extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    this.setState({ active: 3 });
+                    this.setState({ active: "Jenius" });
                   }}
                   className={
-                    this.state.active === 3
+                    this.state.active === "Jenius"
                       ? "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300 bg-blue-200"
                       : "border-2 border-slate-600 rounded-lg py-4 w-[46.5%] flex justify-center items-center mb-[23px] focus:bg-blue-300"
                   }
@@ -148,13 +155,24 @@ export default class Payment extends Component {
               <Pressable
                 className="w-[48%] px-4 py-3 rounded-lg border-2 border-blue-500 hover:bg-blue-300 active:bg-blue-300"
                 title="Batal"
+                onPress={() => this.props.navigation.goBack()}
               >
                 <Text className="text-blue-500 font-medium text-center text-xl">
                   Batal
                 </Text>
               </Pressable>
               <Pressable
-                onPress={() => this.setModalVisible(true)}
+                onPress={() => {
+                  this.setModalVisible(true);
+                  !modalVisible
+                    ? this.props.navigation.navigate("Success", {
+                        name: this.props.route.name,
+                        price: quantity * parseInt(price.split(".").join("")),
+                        quantity,
+                        method: this.state.active,
+                      })
+                    : null;
+                }}
                 className="w-[48%] px-4 py-3 rounded-lg bg-blue-500 hover:bg-blue-300 active:bg-blue-300"
                 title="Batal"
               >

@@ -4,14 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icons from "react-native-vector-icons/Ionicons"
 import HomeScreen from './HomeScreen';
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import History from './History';
 
 function UserScreen() {
   return (
@@ -35,7 +28,7 @@ export default function App() {
               iconName = focused
                 ? 'home-sharp'
                 : 'home-outline';
-            } else if (route.name === 'Settings') {
+            } else if (route.name === 'History') {
               iconName = focused ? 'ios-time-sharp' : 'ios-time-outline';
             }else if(route.name === 'user'){
               iconName = focused ? 'ios-person-sharp' : 'ios-person-outline';
@@ -50,7 +43,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="History" component={History} />
         <Tab.Screen name="user" component={UserScreen} />
       </Tab.Navigator>
     </NavigationContainer>
