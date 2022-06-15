@@ -6,58 +6,7 @@ import Icons from "react-native-vector-icons/Ionicons";
 import { TailwindProvider } from "tailwindcss-react-native";
 import HomeScreen from "./HomeScreen";
 import Icon from "react-native-vector-icons/Ionicons";
-
-function SettingsScreen() {
-  return (
-    <TailwindProvider>
-      <ScrollView>
-        <View
-          style={{
-            padding: 32,
-            paddingTop: 96,
-          }}
-        >
-          <Text className="text-2xl font-semibold text-slate-700 mb-8">
-            Riwayat Pembelian
-          </Text>
-          {/* START: PURCHASE HISTORY */}
-          <View className="flex flex-row justify-between py-5 px-6 border-2 border-slate-600 rounded-lg w-full mb-5">
-            <View>
-              <Text className="text-xl font-semibold text-slate-700 mb-3">
-                Mobil
-              </Text>
-              <Text className="text-xl text-slate-700">4 Tiket</Text>
-            </View>
-            <View>
-              <Text className="text-xl text-sky-500 mb-3 text-right">
-                Rp60.000
-              </Text>
-              <Text className="text-xl text-slate-700 text-right">Gopay</Text>
-            </View>
-          </View>
-          {/* END: PURCHASE HISTORY */}
-
-          {/* START: PURCHASE HISTORY */}
-          <View className="flex flex-row justify-between py-5 px-6 border-2 border-slate-600 rounded-lg w-full mb-5">
-            <View>
-              <Text className="text-xl font-semibold text-slate-700 mb-3">
-                Trampoline
-              </Text>
-              <Text className="text-xl text-slate-700">4 Tiket</Text>
-            </View>
-            <View>
-              <Text className="text-xl text-sky-500 mb-3 text-right">
-                Rp60.000
-              </Text>
-              <Text className="text-xl text-slate-700 text-right">BRI</Text>
-            </View>
-          </View>
-          {/* END: PURCHASE HISTORY */}
-        </View>
-      </ScrollView>
-    </TailwindProvider>
-  );
-}
+import History from "./History";
 
 function UserScreen() {
   let label = "text-md text-slate-700 mb-1";
@@ -163,7 +112,7 @@ export default function App() {
 
             if (route.name === "Home") {
               iconName = focused ? "home-sharp" : "home-outline";
-            } else if (route.name === "Settings") {
+            } else if (route.name === "History") {
               iconName = focused ? "ios-time-sharp" : "ios-time-outline";
             } else if (route.name === "user") {
               iconName = focused ? "ios-person-sharp" : "ios-person-outline";
@@ -178,7 +127,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="History" component={History} />
         <Tab.Screen name="user" component={UserScreen} />
       </Tab.Navigator>
     </NavigationContainer>

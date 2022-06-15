@@ -10,9 +10,12 @@ import {
   SafeAreaView,
   SectionList,
 } from "react-native";
-import { useNavigationState } from "@react-navigation/native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useNavigation, NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Payment from "./Payment";
+import SuccessPayment from "./SuccessPayment";
 
 const DATA = [
   {
@@ -26,65 +29,50 @@ const DATA = [
     ],
   },
 ];
-
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: StatusBar.currentHeight,
-    marginHorizontal: 16,
-  },
-  item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8,
-  },
-  header: {
-    fontSize: 32,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-  },
-});
+const Stack = createStackNavigator();
 
 export default class HomeScreen extends Component {
   render() {
     return (
-      <TailwindProvider>
-        <SafeAreaView
-          style={{
-            flex: 1,
-            flexDirection: "column",
-            paddingTop: 20,
-          }}
-        >
-          <SectionList
-            style={{ padding: 20 }}
-            sections={DATA}
-            keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => (
-              <Lists name={item.nama} price={item.harga} time={item.waktu} />
-            )}
-            renderSectionHeader={({ section: { title } }) => (
-              <Text className="text-3xl font-bold my-10 text-slate-700">
-                {title}
-              </Text>
-            )}
-          />
-        </SafeAreaView>
-      </TailwindProvider>
+      <NavigationContainer independent={true}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={Homes} />
+          <Stack.Screen name="Payment" component={Payment} />
+          <Stack.Screen name="Success" component={SuccessPayment} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
 
+function Homes() {
+  return (
+    <TailwindProvider>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          flexDirection: "column",
+        }}
+      >
+        <SectionList
+          style={{ padding: 20 }}
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => (
+            <Lists name={item.nama} price={item.harga} time={item.waktu} />
+          )}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text className="text-4xl font-bold mb-16 mt-10">{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </TailwindProvider>
+  );
+}
+
 function Lists({ name, price, time }) {
   const [quantity, setQuantity] = useState(1);
+  const NV = useNavigation();
 
   const add = () => {
     setQuantity(quantity + 1);
@@ -143,8 +131,12 @@ function Lists({ name, price, time }) {
             </View>
           </View>
         </View>
-        <Pressable className="bg-blue-500 rounded-md flex-grow-0 px-6 py-2 mt-4 hover:bg-blue-300 active:bg-blue-300">
-          <Text className="text-white font-semibold text-md">Pesan</Text>
+        <Pressable
+          onPress={() => NV.navigate("Payment", { quantity, name, price })}
+        >
+          <Text className="bg-[#1E80C0] rounded-md flex-grow-0 px-6 py-2 text-white font-bold text-lg">
+            Pesan
+          </Text>
         </Pressable>
       </View>
     </View>

@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { StatusBar } from "expo-status-bar";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { Text, View, Pressable } from "react-native";
+import { CommonActions } from "@react-navigation/native";
 
 export default class SuccessPayment extends Component {
   render() {
+    let id = Math.floor(Math.random() * 1000000);
+
     return (
       <TailwindProvider>
         <View className="flex-1 justify-center items-center px-8">
@@ -23,7 +26,7 @@ export default class SuccessPayment extends Component {
                     Permainan
                   </Text>
                   <Text className="text-slate-700 text-2xl font-medium">
-                    Mobil
+                    {this.props.route.name}
                   </Text>
                 </View>
                 {/* END: Game */}
@@ -34,7 +37,7 @@ export default class SuccessPayment extends Component {
                     Total Harga
                   </Text>
                   <Text className="text-slate-700 text-2xl font-medium">
-                    Rp 60.000
+                    Rp {this.props.route.params.price}
                   </Text>
                 </View>
                 {/* END: Price Total */}
@@ -45,7 +48,9 @@ export default class SuccessPayment extends Component {
                   <Text className="text-slate-700 mb-1 font-medium">
                     Total Tiket
                   </Text>
-                  <Text className="text-slate-700 text-2xl font-medium">4</Text>
+                  <Text className="text-slate-700 text-2xl font-medium">
+                    {this.props.route.params.quantity}
+                  </Text>
                 </View>
                 {/* END: Ticket Total */}
 
@@ -55,7 +60,7 @@ export default class SuccessPayment extends Component {
                     Metode Pembayaran
                   </Text>
                   <Text className="text-slate-700 text-2xl font-medium">
-                    Gopay
+                    {this.props.route.params.method}
                   </Text>
                 </View>
                 {/* END: Payment Method */}
@@ -69,7 +74,7 @@ export default class SuccessPayment extends Component {
               </Text>
               <View className="border-2 border-slate-600 rounded-md py-3 px-10 mb-2">
                 <Text className="font-semibold text-2xl text-slate-700">
-                  612387
+                  {id}
                 </Text>
               </View>
               <Text className="italic text-red-600 text-xs">
@@ -80,7 +85,14 @@ export default class SuccessPayment extends Component {
           </View>
 
           {/* START: Button */}
-          <Pressable className="w-[340px] p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-14">
+          <Pressable
+            className="w-[340px] p-4 rounded-md bg-blue-500 hover:bg-blue-300 active:bg-blue-300 mt-14"
+            onPress={() =>
+              this.props.navigation.dispatch({
+                ...CommonActions.navigate({ name: "Home" }),
+              })
+            }
+          >
             <Text
               style={{ fontFamily: "Poppins" }}
               className="text-white text-center text-2xl"
