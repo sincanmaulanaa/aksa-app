@@ -26,7 +26,7 @@ export default class SuccessPayment extends Component {
                     Permainan
                   </Text>
                   <Text className="text-slate-700 text-2xl font-medium">
-                    {this.props.route.name}
+                    {this.props.route.params.name}
                   </Text>
                 </View>
                 {/* END: Game */}
