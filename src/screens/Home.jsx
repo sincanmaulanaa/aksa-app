@@ -8,7 +8,7 @@ import History from './History';
 
 function UserScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>User!</Text>
     </View>
   );
@@ -36,9 +36,9 @@ export default function App() {
 
             return <Icons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#3784DE',
-          tabBarActiveBackgroundColor: '#D4E7FD',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: "#3784DE",
+          tabBarActiveBackgroundColor: "#D4E7FD",
+          tabBarInactiveTintColor: "gray",
           headerShown: false,
         })}
       >

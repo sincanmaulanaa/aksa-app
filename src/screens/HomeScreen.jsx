@@ -19,12 +19,13 @@ import SuccessPayment from "./SuccessPayment";
 
 const DATA = [
   {
-    title: "Mau pesan\ntiket apa hari ini",
+    title: "Mau pesan\ntiket apa hari ini?",
     data: [
-      { nama: "Go Cart", harga: "15.000", waktu: 20 },
-      { nama: "Bianglala", harga: "12.000", waktu: 10 },
-      { nama: "Trampolin", harga: "20.000", waktu: 60 },
-      { nama: "Mandi Bola", harga: "30.000", waktu: 30 },
+      { nama: "Mobil", harga: "15.000", waktu: 30 },
+      { nama: "Motor", harga: "15.000", waktu: 30 },
+      { nama: "Playground", harga: "30.000", waktu: 60 },
+      { nama: "Trampoline", harga: "30.000", waktu: 60 },
+      { nama: "Arcade", harga: "30.000", waktu: 30 },
     ],
   },
 ];
@@ -83,7 +84,7 @@ function Lists({ name, price, time }) {
 
   return (
     <View
-      className="p-6 border-1 rounded-xl w-full flex mb-14 -mt-7"
+      className="p-6 border-1 rounded-lg border-slate-600 w-full flex mb-5"
       style={{
         borderColor: "#000",
         borderWidth: 2,
@@ -91,13 +92,13 @@ function Lists({ name, price, time }) {
     >
       <View className="flex-1 flex flex-row">
         <View className="flex-1 max-w-[75%]">
-          <Text className="text-3xl font-bold">{name}</Text>
+          <Text className="text-2xl font-semibold text-slate-700">{name}</Text>
         </View>
         <View className="flex text-right">
-          <Text className="flex-1 text-right text-lg font-bold">
+          <Text className="flex-1 text-right text-md font-semibold text-slate-700 mb-1">
             Rp {price}
           </Text>
-          <Text className="flex-1 text-right text-gray-500 text-md">
+          <Text className="flex-1 text-right text-gray-500 text-xs">
             {time} Menit
           </Text>
         </View>
@@ -107,22 +108,24 @@ function Lists({ name, price, time }) {
         <View className="flex-1 flex flex-row">
           <View className="flex flex-col">
             <View className="flex-1">
-              <Text className="text-xl font-bold mb-2">Total Tiket</Text>
+              <Text className="text-sm font-semibold mb-2 text-slate-700">
+                Total Tiket
+              </Text>
             </View>
-            <View className="flex flex-row">
+            <View className="flex flex-row justify-center items-center">
               <Icon
                 name="remove-circle-outline"
                 size={24}
-                color="#999"
+                color="#444"
                 onPress={quantity > 0 ? () => rem() : setQuantity(1)}
               ></Icon>
-              <Text className="flex-1 text-right text-xl font-bold mx-4">
+              <Text className="flex-1 text-right text-lg font-semibold mx-4 text-slate-700">
                 {quantity}
               </Text>
               <Icon
                 name="add-circle-outline"
                 size={24}
-                color="#000"
+                color="#333"
                 onPress={() => add()}
               ></Icon>
             </View>
