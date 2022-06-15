@@ -25,7 +25,6 @@ class Landing extends Component {
           </Pressable>
           <StatusBar style="auto" />
         </View>
-        <Navbar />
       </TailwindProvider>
     );
   }

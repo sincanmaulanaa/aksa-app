@@ -64,4 +64,6 @@ Sama dengan namanya, framework ini mampu mengubah aplikasi yang dibangun ke dala
 
     Dalam pengembangan aplikasi ini kami menggunakan 3 telepon seluler yang berbeda yaitu, Xiaomi dengan MIUI, Vivo dengan FuntouchOs dan Google Pixel (Emulator) dengan Stock Android. dari pengalaman kami, MIUI memiliki cara yang berbeda dalam mengatur cache aplikasi, sehingga mempengaruhi pengembangan aplikasi seperti Icon yang tidak berubah, Stuck di beberapa halaman, navbar dan menu bar yang perlu di atur kembali dan lain-lain.
 
-- 
+- NAVIGATION HANDLING
+
+    ini adalah masalah paling susah dalam pengembangan aplikasi. karena React Native tidak menyediakan navigasi, maka kita harus mengatur navigasi secara manual. dan navigasinya cukup rumit dan bisa terbilang tidak efisien seperti navigasi di browser. belum lagi passing data antara halaman yang lebih membingungkan.
