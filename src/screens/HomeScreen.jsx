@@ -129,10 +129,9 @@ function Lists({ name, price, time }) {
         </View>
         <Pressable
           onPress={() => NV.navigate("Payment", { quantity, name, price })}
+          className="bg-[#1E80C0] rounded-md flex-grow-0 px-6 py-2 mt-4 hover:bg-blue-300 active:bg-blue-300"
         >
-          <Text className="bg-[#1E80C0] rounded-md flex-grow-0 px-6 py-2 text-white font-medium text-md mt-4">
-            Pesan
-          </Text>
+          <Text className="text-white font-medium text-md">Pesan</Text>
         </Pressable>
       </View>
     </View>
