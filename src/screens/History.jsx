@@ -35,7 +35,6 @@ function HistoryData() {
     }
   }, []);
 
-  console.log(data)
 
   if(data == null || data.length < 1){
     return (
@@ -50,9 +49,6 @@ function HistoryData() {
   }
 
   if (ready) {
-
- 
-
     let DATA = [{ title: "Riwayat \nPembelian", data }];
 
     return (
